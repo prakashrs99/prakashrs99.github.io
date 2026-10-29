@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Academic website of Dr. Prakash Kumar Sahoo, researcher in photoredox catalysis, sustainable synthesis, and late-stage functionalization.">
+<title>Dr. Prakash Kumar Sahoo | Researcher in Chemistry</title>
+<style>
+:root {
+  --site-primary: #173D38;
+  --site-secondary: #E9E4D7;
+  --site-background: #F7F6F1;
+  --site-on-primary: #FFFFFF;
+  --site-on-secondary: #202D2A;
+  --site-on-background: #172622;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Georgia, "Times New Roman", serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  --ink-muted: #586762;
+  --line: #D9DED7;
+  --accent: #C47A45;
+  --surface: light-dark(#FFFFFF, #202925);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; color-scheme: light dark; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); line-height: 1.65; }
+.site-root { min-height: 100vh; width: 100%; background-color: var(--site-background); color: var(--site-on-background); border-radius: 0; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.topbar { background: var(--site-primary); color: var(--site-on-primary); }
+.nav { max-width: 1160px; margin: auto; padding: calc(18px * var(--site-spacing-scale)) 26px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+.brand { font-weight: 700; letter-spacing: .02em; text-decoration: none; }
+.nav-links { display: flex; gap: 22px; flex-wrap: wrap; font-size: .9rem; }
+.nav-links a { text-decoration: none; opacity: .9; }
+.nav-links a:hover { text-decoration: underline; opacity: 1; }
+.hero { background: var(--site-primary); color: var(--site-on-primary); position: relative; overflow: hidden; }
+.hero-inner { max-width: 1160px; margin: auto; padding: clamp(60px, 9vw, 112px) 26px clamp(72px, 9vw, 118px); display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(230px, .75fr); gap: 60px; align-items: center; }
+.kicker { text-transform: uppercase; letter-spacing: .16em; font-size: .76rem; font-weight: 700; color: #D9B78E; }
+h1, h2, h3 { font-family: var(--site-font-heading); font-weight: 500; line-height: 1.12; }
+h1 { font-size: clamp(2.8rem, 6vw, 5.3rem); margin: 16px 0 20px; letter-spacing: -.035em; }
+.hero p { max-width: 680px; color: #E0E8E3; font-size: clamp(1rem, 1.5vw, 1.17rem); }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: calc(5px * var(--site-radius-scale)); font-weight: 650; text-decoration: none; border: 1px solid transparent; }
+.button.primary { background: var(--site-secondary); color: var(--site-on-secondary); }
+.button.ghost { border-color: #8BA29A; color: var(--site-on-primary); }
+.button:hover { transform: translateY(-1px); }
+.orbit { width: min(100%, 310px); aspect-ratio: 1; margin: auto; border: 1px solid #6D8A80; border-radius: 50%; display: grid; place-items: center; position: relative; }
+.orbit::before, .orbit::after { content: ""; position: absolute; border: 1px solid #6D8A80; border-radius: 50%; inset: 13%; }
+.orbit::after { inset: 28%; border-color: #A9BDB4; }
+.orbit-core { width: 29%; aspect-ratio: 1; border-radius: 50%; background: var(--accent); display: grid; place-items: center; color: white; font-family: var(--site-font-heading); font-size: 2rem; z-index: 1; box-shadow: 0 0 0 14px #ffffff0d; }
+.orbit-label { position: absolute; background: var(--site-primary); padding: 4px 8px; color: #E7ECE8; font-size: .75rem; letter-spacing: .05em; }
+.orbit-label.one { top: 9%; left: 23%; }.orbit-label.two { right: -2%; top: 47%; }.orbit-label.three { bottom: 10%; left: 12%; }
+main { max-width: 1160px; margin: auto; padding: 0 26px; }
+section { padding: clamp(54px, 7vw, 82px) 0; border-bottom: 1px solid var(--line); scroll-margin-top: 28px; }
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 30px; }
+.section-head h2 { font-size: clamp(2rem, 3.5vw, 3rem); margin: 0; }
+.section-head p { max-width: 490px; color: var(--ink-muted); margin: 0; }
+.eyebrow { color: #9A5C32; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; margin-bottom: 10px; }
+.about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 54px; }
+.about-copy p { margin-top: 0; color: var(--ink-muted); }
+.facts { background: var(--site-secondary); color: var(--site-on-secondary); padding: 26px; border-radius: calc(8px * var(--site-radius-scale)); }
+.facts h3 { margin: 0 0 16px; font-size: 1.5rem; }
+.fact { padding: 12px 0; border-top: 1px solid #c9c8ba; }
+.fact strong { display: block; font-size: .9rem; }.fact span { color: #59645E; font-size: .9rem; }
+.research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.research-card { padding: 24px; border: 1px solid var(--line); background: var(--surface); border-radius: calc(8px * var(--site-radius-scale)); min-height: 235px; }
+.card-number { color: var(--accent); font-family: var(--site-font-heading); font-size: 1.2rem; }
+.research-card h3 { font-size: 1.45rem; margin: 18px 0 10px; }
+.research-card p { margin: 0; color: var(--ink-muted); font-size: .94rem; }
+.pub-controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.filter-btn { border: 1px solid var(--line); background: transparent; color: var(--site-on-background); padding: 8px 13px; border-radius: 999px; cursor: pointer; font: inherit; font-size: .86rem; }
+.filter-btn[aria-pressed="true"] { background: var(--site-primary); color: var(--site-on-primary); border-color: var(--site-primary); }
+.pub-list { display: grid; gap: 0; }
+.pub { display: grid; grid-template-columns: 90px 1fr; gap: 24px; padding: 23px 0; border-top: 1px solid var(--line); }
+.pub-year { color: var(--ink-muted); font-size: .9rem; padding-top: 3px; }
+.pub h3 { font-size: 1.3rem; margin: 0 0 6px; }
+.pub p { margin: 0; color: var(--ink-muted); font-size: .94rem; }
+.tag { display: inline-block; margin-top: 10px; padding: 3px 8px; background: var(--site-secondary); color: var(--site-on-secondary); font-size: .72rem; font-weight: 700; border-radius: 3px; }
+.timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+.timeline-item { padding: 0 0 22px 20px; border-left: 2px solid var(--line); position: relative; }
+.timeline-item::before { content: ""; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.timeline-item .date { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-muted); }
+.timeline-item h3 { margin: 8px 0 5px; font-size: 1.35rem; }
+.timeline-item p { margin: 0; color: var(--ink-muted); }
+.teaching { background: var(--site-secondary); color: var(--site-on-secondary); border-radius: calc(8px * var(--site-radius-scale)); padding: 28px; }
+.teaching p { color: #59645E; }
+.course-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+.course-list span { border: 1px solid #C8C9BE; padding: 7px 11px; border-radius: 3px; font-size: .88rem; }
+.contact-panel { background: var(--site-primary); color: var(--site-on-primary); padding: clamp(28px, 5vw, 50px); border-radius: calc(10px * var(--site-radius-scale)); display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+.contact-panel h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 12px; }
+.contact-panel p { color: #DCE6E0; max-width: 580px; margin: 0; }
+footer { max-width: 1160px; margin: auto; padding: 28px 26px 38px; display: flex; justify-content: space-between; gap: 20px; color: var(--ink-muted); font-size: .83rem; }
+.small-note { font-size: .82rem; color: var(--ink-muted); }
+@media (max-width: 760px) {
+  .nav { align-items: flex-start; flex-direction: column; }
+  .hero-inner { grid-template-columns: 1fr; gap: 38px; }
+  .orbit { width: 220px; }
+  .about-grid, .timeline { grid-template-columns: 1fr; gap: 24px; }
+  .research-grid { grid-template-columns: 1fr; }
+  .section-head { align-items: flex-start; flex-direction: column; }
+  .pub { grid-template-columns: 56px 1fr; gap: 14px; }
+  .contact-panel { align-items: flex-start; flex-direction: column; }
+  footer { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="site-root" id="top">
+  <header class="topbar">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top">Prakash K. Sahoo <span aria-hidden="true">/</span> Chemistry</a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#teaching">Teaching</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="kicker">Researcher in Organic Chemistry & Catalysis</div>
+        <h1>Dr. Prakash<br>Kumar Sahoo</h1>
+        <p>Exploring sustainable synthetic methods through photoredox catalysis, late-stage functionalization, heterogeneous photocatalysis, and modern C–H bond functionalization.</p>
+        <p><strong>Postdoctoral Fellow</strong> · University of Alberta, Canada</p>
+        <div class="hero-actions"><a class="button primary" href="#research">Explore my research ↓</a><a class="button ghost" href="#publications">Selected publications</a></div>
+      </div>
+      <div class="orbit" aria-label="Abstract molecular orbital illustration">
+        <span class="orbit-label one">PHOTOCATALYSIS</span><span class="orbit-label two">C–H</span><span class="orbit-label three">SYNTHESIS</span>
+        <div class="orbit-core">PKS</div>
+      </div>
+    </div>
+  </div>
+  <main>
+    <section id="about">
+      <div class="section-head"><div><div class="eyebrow">A little about me</div><h2>Science at the interface<br>of synthesis and sustainability</h2></div><p>My work focuses on developing practical and selective chemical transformations, with an emphasis on catalysis and the synthesis of complex molecules.</p></div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>I am a chemist working in synthetic methodology, photoredox catalysis, and functionalization of organic molecules. My doctoral research at the University of Antwerp focused on photoredox catalysis and late-stage functionalization using homogeneous and heterogeneous photocatalytic systems.</p>
+          <p>I am currently a Postdoctoral Fellow at the University of Alberta, where my research includes nucleoside chemistry and C–H bond functionalization of nucleoside analogues for medicinal-chemistry applications.</p>
+          <p>I am interested in research strategies that combine mechanistic insight, experimental practicality, and more sustainable approaches to molecular synthesis.</p>
+        </div>
+        <aside class="facts">
+          <h3>Research at a glance</h3>
+          <div class="fact"><strong>Current position</strong><span>Postdoctoral Fellow, University of Alberta</span></div>
+          <div class="fact"><strong>Research themes</strong><span>Photoredox catalysis · C–H functionalization · Nucleoside chemistry</span></div>
+          <div class="fact"><strong>Doctoral training</strong><span>PhD in Chemical Science, University of Antwerp, Belgium</span></div>
+          <div class="fact"><strong>Previous teaching</strong><span>Assistant Professor / Temporary Faculty, NIT Raipur, India</span></div>
+        </aside>
+      </div>
+    </section>
+    <section id="research">
+      <div class="section-head"><div><div class="eyebrow">Research interests</div><h2>What I work on</h2></div><p>Research directions connecting catalyst design, reaction discovery, and the functionalization of valuable molecular scaffolds.</p></div>
+      <div class="research-grid">
+        <article class="research-card"><div class="card-number">01 / Catalysis</div><h3>Photoredox catalysis</h3><p>Developing light-driven strategies for selective bond formation and functional-group transformations under mild conditions.</p></article>
+        <article class="research-card"><div class="card-number">02 / Materials</div><h3>Heterogeneous photocatalysts</h3><p>Designing solid photocatalytic systems, including metal-modified graphitic carbon nitride, for sustainable organic transformations.</p></article>
+        <article class="research-card"><div class="card-number">03 / Molecules</div><h3>Late-stage & C–H functionalization</h3><p>Building methods to modify complex molecules and nucleoside analogues, with potential relevance to medicinal chemistry.</p></article>
+      </div>
+    </section>
+    <section id="publications">
+      <div class="section-head"><div><div class="eyebrow">Selected work</div><h2>Publications</h2></div><p>Selected research articles and reviews in photoredox catalysis, sustainable synthesis, and late-stage functionalization. Select a DOI to view the publisher's article page.</p></div>
+      <div class="pub-controls" role="group" aria-label="Filter publications">
+        <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All selected</button>
+        <button class="filter-btn" type="button" data-filter="photocatalysis" aria-pressed="false">Photocatalysis</button>
+        <button class="filter-btn" type="button" data-filter="functionalization" aria-pressed="false">Functionalization</button>
+        <button class="filter-btn" type="button" data-filter="review" aria-pressed="false">Review</button>
+      </div>
+      <div class="pub-list">
+        <article class="pub" data-category="review photocatalysis"><div class="pub-year">2026</div><div><h3>Heterogeneous Photocatalysis for Late-Stage Functionalization: A Sustainable Frontier for Complex Molecule Synthesis</h3><p><em>ChemSusChem</em>, 19, e202502495 (2026). Prakash Kumar Sahoo and Shoubhik Das.</p><a class="tag" href="https://doi.org/10.1002/cssc.202502495" target="_blank" rel="noopener noreferrer">DOI: 10.1002/cssc.202502495 ↗</a></div></article>
+        <article class="pub" data-category="photocatalysis functionalization"><div class="pub-year">2026</div><div><h3>Interfacial Mn-Carbon Nitride Synergy Enables Selective Photocatalytic C–H Chlorination via Single-Atom Catalysis</h3><p><em>Angewandte Chemie International Edition</em> (2026).</p><a class="tag" href="https://doi.org/10.1002/anie.5772245" target="_blank" rel="noopener noreferrer">DOI: 10.1002/anie.5772245 ↗</a></div></article>
+        <article class="pub" data-category="photocatalysis functionalization"><div class="pub-year">2025</div><div><h3>An Atomically Dispersed Mn Photocatalyst for Vicinal Dichlorination of Nonactivated Alkenes</h3><p><em>Journal of the American Chemical Society</em> (2025).</p><a class="tag" href="https://doi.org/10.1021/jacs.4c16413" target="_blank" rel="noopener noreferrer">DOI: 10.1021/jacs.4c16413 ↗</a></div></article>
+        <article class="pub" data-category="photocatalysis functionalization"><div class="pub-year">2024</div><div><h3>A Covalent Triazine Framework for Photocatalytic Anti-Markovnikov Hydrofunctionalizations</h3><p><em>Angewandte Chemie</em> (2024).</p><a class="tag" href="https://doi.org/10.1002/ange.202415624" target="_blank" rel="noopener noreferrer">DOI: 10.1002/ange.202415624 ↗</a></div></article>
+        <article class="pub" data-category="functionalization"><div class="pub-year">2024</div><div><h3>Selective synthesis of functionalized linear aliphatic primary amines via decarboxylative radical-polar crossover</h3><p><em>Green Chemistry</em>, 26, 264 (2024).</p><a class="tag" href="https://doi.org/10.1039/d3gc03187j" target="_blank" rel="noopener noreferrer">DOI: 10.1039/d3gc03187j ↗</a></div></article>
+        <article class="pub" data-category="functionalization photocatalysis"><div class="pub-year">2023</div><div><h3>Robust late-stage benzylic C(sp³)–H aminations by using transition metal-free photoredox catalysis</h3><p><em>Journal of Catalysis</em>, 425, 80–88 (2023).</p><a class="tag" href="https://doi.org/10.1016/j.jcat.2023.06.002" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.jcat.2023.06.002 ↗</a></div></article>
+        <article class="pub" data-category="functionalization"><div class="pub-year">2022</div><div><h3>Direct Solar Energy-Mediated Synthesis of Tertiary Benzylic Alcohols Using a Metal-Free Heterogeneous Photocatalyst</h3><p><em>ACS Sustainable Chemistry & Engineering</em>, 10, 530–540 (2022).</p><a class="tag" href="https://doi.org/10.1021/acssuschemeng.1c07026" target="_blank" rel="noopener noreferrer">DOI: 10.1021/acssuschemeng.1c07026 ↗</a></div></article>
+        <article class="pub" data-category="functionalization photocatalysis"><div class="pub-year">2022</div><div><h3>Transition metal-free approach for late-stage benzylic C(sp³)–H etherifications and esterifications</h3><p><em>Chemical Communications</em>, 58, 11454–11457 (2022).</p><a class="tag" href="https://doi.org/10.1039/d2cc02661a" target="_blank" rel="noopener noreferrer">DOI: 10.1039/d2cc02661a ↗</a></div></article>
+        <article class="pub" data-category="photocatalysis"><div class="pub-year">2021</div><div><h3>Nature inspired singlet oxygen generation to access α-amino carbonyl compounds via 1,2-acyl migration</h3><p><em>Green Chemistry</em>, 23, 379–387 (2021).</p><a class="tag" href="https://doi.org/10.1039/d0gc03555f" target="_blank" rel="noopener noreferrer">DOI: 10.1039/d0gc03555f ↗</a></div></article>
+        <article class="pub" data-category="review photocatalysis"><div class="pub-year">2021</div><div><h3>CO₂-Promoted Reactions: An Emerging Concept for the Synthesis of Fine Chemicals and Pharmaceuticals</h3><p><em>ACS Catalysis</em>, 11, 3414–3442 (2021).</p><a class="tag" href="https://doi.org/10.1021/acscatal.0c05681" target="_blank" rel="noopener noreferrer">DOI: 10.1021/acscatal.0c05681 ↗</a></div></article>
+        <article class="pub" data-category="review"><div class="pub-year">2021</div><div><h3>Oxidative Transformation of Biomass into Formic Acid</h3><p><em>European Journal of Organic Chemistry</em>, 2021, 1331–1343. Prakash Kumar Sahoo, Tong Zhang, and Shoubhik Das.</p><a class="tag" href="https://doi.org/10.1002/ejoc.202001514" target="_blank" rel="noopener noreferrer">DOI: 10.1002/ejoc.202001514 ↗</a></div></article>
+        <article class="pub" data-category="functionalization"><div class="pub-year">2018</div><div><h3>Iron-Catalyzed Selective Etherification and Transetherification Reactions Using Alcohols</h3><p><em>ACS Omega</em>, 3, 124–136 (2018).</p><a class="tag" href="https://doi.org/10.1021/acsomega.7b01705" target="_blank" rel="noopener noreferrer">DOI: 10.1021/acsomega.7b01705 ↗</a></div></article>
+      </div>
+      <p class="small-note">For the complete and most up-to-date publication record, please also visit my Google Scholar profile.</p>
+    </section>
+    <section id="experience">
+      <div class="section-head"><div><div class="eyebrow">Academic path</div><h2>Experience & training</h2></div><p>Research and teaching experiences that shape my approach to chemistry, mentoring, and scientific problem-solving.</p></div>
+      <div class="timeline">
+        <div>
+          <article class="timeline-item"><div class="date">July 2026 – Present</div><h3>Postdoctoral Fellow</h3><p>University of Alberta, Canada · Nucleoside chemistry and C–H bond functionalization of nucleoside analogues.</p></article>
+          <article class="timeline-item"><div class="date">August 2024 – June 2026</div><h3>Temporary Faculty</h3><p>National Institute of Technology Raipur, India · Undergraduate and postgraduate teaching in chemistry and environmental studies.</p></article>
+        </div>
+        <div>
+          <article class="timeline-item"><div class="date">Doctoral research</div><h3>PhD in Chemical Science</h3><p>University of Antwerp, Belgium · Photoredox catalysis and late-stage functionalization using homogeneous and heterogeneous photocatalysts.</p></article>
+          <article class="timeline-item"><div class="date">Earlier research training</div><h3>Research fellowships</h3><p>Research training and academic awards including DAAD and DOCPRO fellowships. Add exact dates and award descriptions as needed.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="teaching">
+      <div class="section-head"><div><div class="eyebrow">Teaching & mentoring</div><h2>Helping students think like chemists</h2></div></div>
+      <div class="teaching">
+        <p>My teaching approach combines conceptual clarity, problem-based learning, and links between fundamental chemistry and current research. I aim to help students build strong foundations, reason through mechanisms, interpret experimental data, and develop safe and reproducible laboratory practices.</p>
+        <div class="course-list"><span>Applied Chemistry</span><span>Environment & Ecology</span><span>Synthetic Organic & Green Chemistry</span><span>Stereochemistry</span><span>Organic Reaction Mechanisms</span><span>Photoredox Catalysis</span></div>
+      </div>
+    </section>
+    <section id="contact" style="border-bottom:0">
+      <div class="contact-panel"><div><div class="kicker">Get in touch</div><h2>Let's talk chemistry.</h2><p>For research discussions, collaboration, academic opportunities, or student mentoring, please contact me by email or connect through my academic profiles.</p><p style="margin-top:16px"><strong>Email:</strong> <a href="mailto:pksahoo@ualberta.ca">pksahoo@ualberta.ca</a></p><p style="margin-top:8px"><strong>ORCID:</strong> <a href="https://orcid.org/0000-0002-3161-1547" target="_blank" rel="noopener noreferrer">0000-0002-3161-1547 ↗</a></p></div><div class="hero-actions"><a class="button primary" href="mailto:pksahoo@ualberta.ca">Email me</a><a class="button ghost" href="https://scholar.google.com/citations?user=MudNqUoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a><a class="button ghost" href="https://www.linkedin.com/in/prakash-kumar-sahoo-amrsc-060b20103" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>
+      <p class="small-note" style="margin-top:14px">Academic profiles: <a href="https://orcid.org/0000-0002-3161-1547" target="_blank" rel="noopener noreferrer">ORCID</a> · <a href="https://scholar.google.com/citations?user=MudNqUoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> · <a href="https://www.linkedin.com/in/prakash-kumar-sahoo-amrsc-060b20103" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Dr. Prakash Kumar Sahoo</span><span>Academic profile · Chemistry · Research & teaching</span></footer>
+</div>
+<script>
+const filterButtons = document.querySelectorAll('.filter-btn');
+const publications = document.querySelectorAll('.pub');
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    publications.forEach(pub => {
+      const categories = pub.dataset.category.split(' ');
+      pub.hidden = filter !== 'all' && !categories.includes(filter);
+    });
+  });
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
